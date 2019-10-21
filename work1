@@ -1,0 +1,35 @@
+#include <stdio.h>
+int main()
+{
+FILE *fp;
+int line=1,str,word,pu,ch;
+int g;
+if((fp=fopen("c:\\file.txt","r"))==NULL)
+{
+printf("没有检测到文件\n");
+return;
+}
+ch=fgetc(fp);
+str++;
+while(ch!=EOF)
+{
+printf("%c",ch);
+if(ch=='\n')
+{
+line++;
+}
+else if(ch==' ' || ch==',')
+{
+word++;
+if(ch==',')
+{
+g++;
+}
+}
+str++;
+ch=fgetc(fp);
+}
+word++;
+printf("一共有:%d行 %d个单词 %d个字符 %d个标点符号\n",line,word,str,g);
+fclose(fp);
+}
