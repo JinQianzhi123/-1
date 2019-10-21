@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include <string.h>
+int main()
+{
+printf("输入语句：");
+char str[256]; //此处设置256字符以内的文本
+      int a,b,c,d,i,m;
+ while(gets(str)!=NULL)
+ {
+ 	a=b=c=d=0;
+    m=strlen(str);
+ 	for(i=0;i<m;i++)
+	{
+	if(str[i]=='.')   //利用句号的个数统计句子个数
+       c++;
+	else if(str[i]>='a'&& str[i]<='z'||str[i]>='A'&&str[i]<='Z') //统计字母个数
+       a++;
+    else if(str[i]==' ')   //统计空格个数
+        b++;
+    else 
+        d++;
+		}  //统计标点符号个数
+ printf("句子的个数为%d ",c);	
+ printf("字符号的个数为%d\n",d+c);
+ printf("单词的个数为%d\n",b+d+c);  //空格数加标点符号数为单词个数（不考虑连字符，引号）
+}
+}
